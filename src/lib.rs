@@ -36,7 +36,7 @@ impl ThreadPool {
         // FnOnce because the thread only execute the code block we pass once
         // Send is required to pass the closures between threads
         // 'static because we do not now how long the thread will take to execute
-        // so the closure has to leave as long as the program
+        // so the closure has to live as long as the program
         F: FnOnce() + Send + 'static,
     {
         let job = Box::new(f);
